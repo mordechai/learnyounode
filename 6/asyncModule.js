@@ -8,7 +8,9 @@ module.exports = function(dirPath, fileExt, cb){
     selectedFiles = []
 
 	fs.readdir(dirPath, function finishedReading(error, list){
-    	if (error) return console.error(error)
+    	if (error){
+    		return cb (error, null)
+    	}
     	    files = list.toString().split(',')
     		
     	    for (var i = 0; i < files.length; i++) {
@@ -22,5 +24,3 @@ module.exports = function(dirPath, fileExt, cb){
     
 
 
-
-      //  export single func: dir name, file ext name, callback function
